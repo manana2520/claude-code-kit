@@ -2,7 +2,7 @@
 
 ## Language
 
-- **Communicate with user in Czech** (mluvíme česky)
+- **Communicate with user in English**
 - **Write all files in English** (code, comments, documentation, config files)
 - Variable names, function names, commit messages - all in English
 
@@ -21,6 +21,31 @@
 - **Write tests for all new code** - business logic, API endpoints, utilities. Skip only: config files, type definitions, trivial one-liners
 
 - When exploring a feature or diagnosing a bug, always complete the full investigation and provide a summary of findings before stopping. Do not leave investigations half-done. If the task is large, break it into phases and complete at least phase 1 with actionable output.
+
+## Command Execution - Do It Yourself
+
+- **ALWAYS execute commands directly** - never ask the user to run commands for you
+- This applies to all CLI tools: `gh` (GitHub), `gcloud`, `aws`, `kubectl`, `docker`, `npm`, `yarn`, `pip`, etc.
+- If a tool is not installed, **ask the user to install it** (provide the installation command), then proceed once available
+- Do NOT prompt user with "please run this command" - just run it yourself
+- The goal is to **free the user from manual execution** - be autonomous
+
+## ENVIRONMENT - ALWAYS PREFER STAGING
+- Always perform everything on staging or testing environment first if available
+- Only operate on production when specifically asked for it
+- Staging or testing environment should be used for everything
+- **Use dry-run option first** when available to preview results before executing
+- For destructive or irreversible operations, always confirm dry-run output before proceeding
+
+## CONTEXT - ALWAYS READ DOCUMENTATION
+- always read documentation before implementing anything
+- in each repo you working, search and find documentation for you to understand context
+- you keep loosing the memory, so the documentaion is helping you to stick to the instructions
+
+## SCRIPTS, TROUBLESHOOIGN, DEBUGGIN
+- when you debug, troubleshoot and you create scripts for that, always place is into .scratch/ folder
+- unless specifically asked or plan is created that says otherwise, all troubleshooting scripts should be in .scratch/ folder
+
 
 ## Implementation Integrity - No Mocks, No Skipping
 
