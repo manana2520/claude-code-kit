@@ -62,6 +62,10 @@ Included servers:
 
 Add new servers to `.claude/mcp-servers.json` and run the sync script.
 
+**Required environment variables** (see `.env.example`):
+- `PERPLEXITY_API_KEY` - for Perplexity MCP
+- `ODOO_STAGING_CLIENT_ID`, `ODOO_STAGING_CLIENT_SECRET` - for Odoo staging (optional)
+
 ### `.zshrc` - Shell Aliases
 
 ```bash
