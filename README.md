@@ -44,27 +44,23 @@ Rules that shape how Claude behaves in every project:
 - Structured JSON logging for all server apps
 - Clean commits (no Co-Authored-By, no Generated-with footer)
 
-### `.claude/mcp-servers.json` - MCP Server Configurations
+### `.claude/mcp-servers.json` - MCP Server Configurations (Auto-synced)
 
-Version-controlled MCP server definitions. Since Claude Code stores MCP servers inside `~/.claude.json` (not a separate file), we keep them here and sync with a script:
+MCP servers are auto-synced from `~/.claude.json` to this repo via launchd. When you run `claude mcp add`, the change is automatically committed and pushed to GitHub.
 
+**How it works:**
+1. launchd watches `~/.claude.json` for changes
+2. `scripts/auto-sync-mcp.sh` extracts `mcpServers` section
+3. Secrets are sanitized (replaced with env var placeholders like `${GOOGLE_OAUTH_CLIENT_ID}`)
+4. Changes are committed and pushed automatically
+
+**One-time setup:**
 ```bash
-# Sync MCP servers to your local Claude config
-./scripts/sync-mcp-servers.sh
+cp scripts/com.maziak.claude-mcp-sync.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.maziak.claude-mcp-sync.plist
 ```
 
-Included servers:
-- **Atlassian** - Confluence/Jira integration
-- **odoo-staging** - Odoo ERP (staging environment)
-- **chrome-devtools** - Browser automation via DevTools protocol
-- **claude-in-chrome** - Browser automation via Chrome extension
-- **perplexity** - Web search and research
-
-Add new servers to `.claude/mcp-servers.json` and run the sync script.
-
-**Required environment variables** (see `.env.example`):
-- `PERPLEXITY_API_KEY` - for Perplexity MCP
-- `ODOO_STAGING_CLIENT_ID`, `ODOO_STAGING_CLIENT_SECRET` - for Odoo staging (optional)
+**Logs:** `.scratch/mcp-sync.log`
 
 ### `.zshrc` - Shell Aliases
 
@@ -90,8 +86,9 @@ cp .claude/settings.json ~/.claude/settings.json
 cp CLAUDE.md ~/.claude/CLAUDE.md
 cp -r .claude/skills/* ~/.claude/skills/
 
-# Sync MCP servers (requires jq: brew install jq)
-./scripts/sync-mcp-servers.sh
+# Setup auto-sync for MCP servers (requires jq: brew install jq)
+cp scripts/com.maziak.claude-mcp-sync.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.maziak.claude-mcp-sync.plist
 
 # Optional: add shell aliases
 cat .zshrc >> ~/.zshrc && source ~/.zshrc
