@@ -1,0 +1,49 @@
+{
+  "Atlassian": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "mcp-remote@latest",
+      "https://mcp.atlassian.com/v1/sse"
+    ]
+  },
+  "odoo-staging": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+      "-y",
+      "mcp-remote@latest",
+      "https://odoo-mcp-server-staging-574793647362.europe-west1.run.app/mcp",
+      "--static-oauth-client-info",
+      "{\"client_id\": \"${ODOO_STAGING_CLIENT_ID}\", \"client_secret\": \"${ODOO_STAGING_CLIENT_SECRET}\"}"
+    ],
+    "env": {}
+  },
+  "chrome-devtools": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+      "chrome-devtools-mcp@latest"
+    ],
+    "env": {}
+  },
+  "claude-in-chrome": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+      "-y",
+      "@anthropic-ai/claude-in-chrome-mcp@latest"
+    ]
+  },
+  "perplexity": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+      "-y",
+      "@nicholasoxford/perplexity-mcp@latest"
+    ],
+    "env": {
+      "PERPLEXITY_API_KEY": "${PERPLEXITY_API_KEY}"
+    }
+  }
+}

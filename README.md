@@ -44,6 +44,24 @@ Rules that shape how Claude behaves in every project:
 - Structured JSON logging for all server apps
 - Clean commits (no Co-Authored-By, no Generated-with footer)
 
+### `.claude/mcp-servers.json` - MCP Server Configurations
+
+Version-controlled MCP server definitions. Since Claude Code stores MCP servers inside `~/.claude.json` (not a separate file), we keep them here and sync with a script:
+
+```bash
+# Sync MCP servers to your local Claude config
+./scripts/sync-mcp-servers.sh
+```
+
+Included servers:
+- **Atlassian** - Confluence/Jira integration
+- **odoo-staging** - Odoo ERP (staging environment)
+- **chrome-devtools** - Browser automation via DevTools protocol
+- **claude-in-chrome** - Browser automation via Chrome extension
+- **perplexity** - Web search and research
+
+Add new servers to `.claude/mcp-servers.json` and run the sync script.
+
 ### `.zshrc` - Shell Aliases
 
 ```bash
@@ -67,6 +85,9 @@ cd claude-code-kit
 cp .claude/settings.json ~/.claude/settings.json
 cp CLAUDE.md ~/.claude/CLAUDE.md
 cp -r .claude/skills/* ~/.claude/skills/
+
+# Sync MCP servers (requires jq: brew install jq)
+./scripts/sync-mcp-servers.sh
 
 # Optional: add shell aliases
 cat .zshrc >> ~/.zshrc && source ~/.zshrc
