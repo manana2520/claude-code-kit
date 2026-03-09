@@ -1,12 +1,4 @@
 {
-  "Atlassian": {
-    "args": [
-      "-y",
-      "mcp-remote@latest",
-      "https://mcp.atlassian.com/v1/sse"
-    ],
-    "command": "npx"
-  },
   "chrome-devtools": {
     "args": [
       "chrome-devtools-mcp@latest"
