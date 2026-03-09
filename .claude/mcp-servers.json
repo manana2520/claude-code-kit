@@ -23,6 +23,10 @@
     "command": "npx",
     "type": "stdio"
   },
+  "deepwiki": {
+    "type": "http",
+    "url": "https://deepwiki.keboola.systems/api/mcp"
+  },
   "odoo-staging": {
     "args": [
       "-y",
