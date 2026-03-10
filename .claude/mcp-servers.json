@@ -19,10 +19,6 @@
     "type": "http",
     "url": "https://deepwiki.keboola.systems/api/mcp"
   },
-  "odoo-staging": {
-    "type": "http",
-    "url": "https://odoo-mcp-server-staging-574793647362.europe-west1.run.app/mcp"
-  },
   "perplexity": {
     "args": [
       "-y",
