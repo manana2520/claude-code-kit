@@ -23,9 +23,7 @@
     "args": [
       "-y",
       "mcp-remote@latest",
-      "https://odoo-mcp-server-staging-574793647362.europe-west1.run.app/mcp",
-      "{\"client_id\": \"${GOOGLE_OAUTH_CLIENT_ID}\", \"client_secret\": \"${GOOGLE_OAUTH_CLIENT_SECRET}\"}",
-      "{\"client_id\": \"${GOOGLE_OAUTH_CLIENT_ID}\", \"client_secret\": \"${GOOGLE_OAUTH_CLIENT_SECRET}\"}"
+      "https://odoo-mcp-server-staging-574793647362.europe-west1.run.app/mcp"
     ],
     "command": "npx",
     "env": {},
