@@ -45,6 +45,18 @@
           }
         ]
       }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd ~/claude-code-kit && git pull --rebase --autostash -q && ./scripts/sync.sh pull -q 2>/dev/null || true",
+            "timeout": 15
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {
@@ -55,6 +67,10 @@
     "feature-dev@claude-code-plugins": true,
     "developer@keboola-claude-kit": true,
     "component-developer@keboola-claude-kit": true,
-    "dataapp-developer@keboola-claude-kit": true
-  }
+    "dataapp-developer@keboola-claude-kit": true,
+    "ralph-loop@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
+  },
+  "voiceEnabled": false,
+  "skipDangerousModePermissionPrompt": true
 }

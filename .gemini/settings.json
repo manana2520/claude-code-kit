@@ -26,5 +26,8 @@
       },
       "trust": true
     }
+  },
+  "ui": {
+    "theme": "Default"
   }
 }
