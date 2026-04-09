@@ -84,6 +84,38 @@ else
 fi
 echo ""
 
+# 2b. Install SessionEnd hook into ~/.claude/settings.json
+echo "--- Installing Claude Code SessionEnd hook ---"
+END_HOOK_CMD="cd ~/claude-code-kit && ./scripts/sync.sh push -q 2>/dev/null || true"
+
+if [ -f "$CLAUDE_SETTINGS" ]; then
+  if jq -e '.hooks.SessionEnd[]?.hooks[]? | select(.command | contains("claude-code-kit"))' "$CLAUDE_SETTINGS" &>/dev/null; then
+    echo "SessionEnd hook already installed, updating..."
+    jq --arg cmd "$END_HOOK_CMD" '
+      .hooks.SessionEnd |= map(
+        .hooks |= map(
+          if (.command | contains("claude-code-kit")) then .command = $cmd else . end
+        )
+      )
+    ' "$CLAUDE_SETTINGS" > "${CLAUDE_SETTINGS}.tmp" && mv "${CLAUDE_SETTINGS}.tmp" "$CLAUDE_SETTINGS"
+  else
+    echo "Adding SessionEnd hook..."
+    jq --arg cmd "$END_HOOK_CMD" '
+      .hooks = (.hooks // {}) |
+      .hooks.SessionEnd = ((.hooks.SessionEnd // []) + [{
+        "matcher": "",
+        "hooks": [{
+          "type": "command",
+          "command": $cmd,
+          "timeout": 30
+        }]
+      }])
+    ' "$CLAUDE_SETTINGS" > "${CLAUDE_SETTINGS}.tmp" && mv "${CLAUDE_SETTINGS}.tmp" "$CLAUDE_SETTINGS"
+  fi
+  echo "SessionEnd hook installed"
+fi
+echo ""
+
 # 3. Summary
 echo "=== Setup Complete ==="
 echo ""
@@ -94,10 +126,12 @@ echo "  - Claude Code CLAUDE.md: symlinked"
 echo "  - Claude Code skills: symlinked"
 echo "  - Gemini CLI settings.json: merged (including MCP servers)"
 echo "  - SessionStart hook: installed (auto-pulls on every session start)"
+echo "  - SessionEnd hook: installed (auto-pushes on every session end)"
 echo ""
 echo "How it works:"
 echo "  - Every time you start Claude Code, it auto-pulls latest settings from git"
-echo "  - To push changes after editing settings: ~/claude-code-kit/scripts/sync.sh push"
+echo "  - Every time a session ends, it auto-pushes local settings back to git"
+echo "  - Manual push if needed: ~/claude-code-kit/scripts/sync.sh push"
 echo ""
 
 # Load .env to check for missing vars
