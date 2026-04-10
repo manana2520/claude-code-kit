@@ -72,5 +72,13 @@
     "superpowers@claude-plugins-official": true
   },
   "voiceEnabled": false,
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "extraKnownMarketplaces": {
+    "keboola-claude-kit": {
+      "source": {
+        "source": "github",
+        "repo": "keboola/claude-kit"
+      }
+    }
+  }
 }
