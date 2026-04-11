@@ -69,10 +69,11 @@
     "component-developer@keboola-claude-kit": true,
     "dataapp-developer@keboola-claude-kit": true,
     "ralph-loop@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
   },
-  "voiceEnabled": false,
-  "skipDangerousModePermissionPrompt": true,
   "extraKnownMarketplaces": {
     "keboola-claude-kit": {
       "source": {
@@ -80,5 +81,7 @@
         "repo": "keboola/claude-kit"
       }
     }
-  }
+  },
+  "voiceEnabled": false,
+  "skipDangerousModePermissionPrompt": true
 }
