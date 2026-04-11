@@ -1,196 +1,9 @@
 {
   "permissions": {
-    "allow": [
-      "Grep",
-      "Glob",
-      "WebFetch",
-      "WebSearch",
-      "Skill",
-
-      "Bash(find:*)",
-      "Bash(ls:*)",
-      "Bash(grep:*)",
-      "Bash(awk:*)",
-      "Bash(sed:*)",
-      "Bash(head:*)",
-      "Bash(tail:*)",
-      "Bash(wc:*)",
-      "Bash(which:*)",
-      "Bash(where:*)",
-      "Bash(pwd:*)",
-      "Bash(whoami:*)",
-      "Bash(echo:*)",
-      "Bash(file:*)",
-      "Bash(stat:*)",
-      "Bash(cat:*)",
-      "Bash(tree:*)",
-      "Bash(test:*)",
-      "Bash(iconv:*)",
-      "Bash(chmod:*)",
-      "Bash(xargs:*)",
-      "Bash(cd:*)",
-      "Bash(open:*)",
-      "Bash(lsof:*)",
-      "Bash(mkdir -p /tmp:*)",
-      "Bash(timeout:*)",
-
-      "Bash(git status:*)",
-      "Bash(git log:*)",
-      "Bash(git diff:*)",
-      "Bash(git show:*)",
-      "Bash(git branch:*)",
-      "Bash(git checkout:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git push:*)",
-      "Bash(git pull:*)",
-      "Bash(git fetch:*)",
-      "Bash(git clone:*)",
-      "Bash(git remote:*)",
-      "Bash(git remote add:*)",
-      "Bash(git rebase:*)",
-      "Bash(git cherry-pick:*)",
-      "Bash(git tag:*)",
-      "Bash(git reset:*)",
-      "Bash(git init:*)",
-      "Bash(git ls-tree:*)",
-
-      "Bash(python:*)",
-      "Bash(python3:*)",
-      "Bash(pip show:*)",
-      "Bash(pip install -r requirements.txt:*)",
-      "Bash(python3 -m venv .venv:*)",
-      "Bash(.venv/bin/python:*)",
-      "Bash(source .venv/bin/activate)",
-      "Bash(pytest:*)",
-
-      "Bash(npm install:*)",
-      "Bash(npm run build:*)",
-      "Bash(npx tsc:*)",
-      "Bash(codex:*)",
-
-      "Bash(make:*)",
-      "Bash(curl:*)",
-      "Bash(scp:*)",
-      "Bash(docker compose:*)",
-      "Bash(docker logs:*)",
-      "Bash(gcloud:*)",
-      "Bash(terraform:*)",
-      "Bash(aws:*)",
-      "Bash(openssl:*)",
-
-      "WebFetch(domain:github.com)",
-      "mcp__playwright__browser_navigate",
-      "mcp__playwright__browser_snapshot",
-      "mcp__playwright__browser_click",
-      "mcp__playwright__browser_take_screenshot",
-      "mcp__playwright__browser_wait_for",
-      "mcp__playwright__browser_close",
-      "mcp__playwright__browser_console_messages",
-      "mcp__playwright__browser_evaluate",
-      "mcp__context7__resolve-library-id",
-      "mcp__context7__get-library-docs",
-      "mcp__perplexity__search",
-      "mcp__perplexity__reason",
-      "mcp__perplexity__deep_research",
-      "mcp__atlassian__search",
-      "mcp__atlassian__getConfluencePage",
-      "mcp__atlassian__getConfluencePageDescendants"
-    ],
-    "deny": [
-      "Read(**/.env)",
-      "Read(**/.env.*)",
-      "Read(**/credentials.json)",
-      "Read(**/credentials.yaml)",
-      "Read(**/credentials.yml)",
-      "Read(**/.credentials)",
-      "Read(**/secrets.json)",
-      "Read(**/secrets.yaml)",
-      "Read(**/secrets.yml)",
-      "Read(**/.secrets)",
-      "Read(**/*.pem)",
-      "Read(**/*.key)",
-      "Read(**/*.p12)",
-      "Read(**/*.pfx)",
-      "Read(**/*.keystore)",
-      "Read(**/*id_rsa*)",
-      "Read(**/*id_dsa*)",
-      "Read(**/*id_ecdsa*)",
-      "Read(**/*id_ed25519*)",
-      "Read(**/.ssh/*)",
-      "Read(**/.aws/credentials)",
-      "Read(**/.aws/config)",
-      "Read(**/.kube/config)",
-      "Read(**/.docker/config.json)",
-      "Read(**/.npmrc)",
-      "Read(**/.pypirc)",
-      "Read(**/.netrc)",
-      "Read(**/.git-credentials)",
-      "Read(**/master.key)",
-      "Read(**/config/master.key)",
-      "Read(**/*.jks)",
-      "Read(**/.htpasswd)",
-      "Read(**/credentials*)",
-      "Read(**/*credentials*)",
-      "Read(**/.credentials*)",
-      "Read(**/secrets*)",
-      "Read(**/*secrets*)",
-      "Read(**/.secrets*)",
-      "Read(**/*.crt)",
-      "Read(**/*.cer)",
-      "Read(**/password*)",
-      "Read(**/*password*)",
-      "Read(**/token*)",
-      "Read(**/*token*)",
-      "Read(**/apikey*)",
-      "Read(**/*apikey*)",
-      "Write(**/.env)",
-      "Write(**/.env.*)",
-      "Write(**/credentials.json)",
-      "Write(**/secrets.json)",
-      "Write(**/*.pem)",
-      "Write(**/*.key)",
-      "Write(**/.ssh/*)",
-      "Write(**/credentials*)",
-      "Write(**/*credentials*)",
-      "Write(**/secrets*)",
-      "Write(**/*secrets*)",
-      "Edit(**/.env)",
-      "Edit(**/.env.*)",
-      "Edit(**/credentials.json)",
-      "Edit(**/secrets.json)",
-      "Edit(**/*.pem)",
-      "Edit(**/*.key)",
-      "Edit(**/.ssh/*)",
-      "Edit(**/credentials*)",
-      "Edit(**/*credentials*)",
-      "Edit(**/secrets*)",
-      "Edit(**/*secrets*)"
-    ],
-    "ask": [
-      "Bash(rm:*)",
-      "Bash(git reset:--hard:*)",
-      "Bash(git clean:*)",
-      "Bash(git push:--force:*)",
-      "Bash(git push:-f:*)",
-      "Bash(npm install:*)",
-      "Bash(yarn add:*)",
-      "Bash(pip install:*)",
-      "Bash(composer install:*)",
-      "Bash(docker:*)",
-      "Bash(kubectl:*)",
-      "Bash(env:*)",
-      "Write(**/package.json)",
-      "Edit(**/package.json)",
-      "Write(**/composer.json)",
-      "Edit(**/composer.json)",
-      "Write(**/package-lock.json)",
-      "Write(**/composer.lock)",
-      "Write(**/yarn.lock)",
-      "Write(**/.gitignore)",
-      "Edit(**/.gitignore)"
-    ],
-    "defaultMode": "default"
+    "allow": [],
+    "deny": [],
+    "ask": [],
+    "defaultMode": "bypassPermissions"
   },
   "hooks": {
     "Notification": [
@@ -200,6 +13,18 @@
           {
             "type": "command",
             "command": "osascript -e 'display notification \"Claude Code needs your attention\" with title \"Claude Code\"'"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd ~/claude-code-kit && ./scripts/sync.sh push -q 2>/dev/null || true",
+            "timeout": 30
           }
         ]
       }
@@ -220,6 +45,18 @@
           }
         ]
       }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd ~/claude-code-kit && git pull --rebase --autostash -q && ./scripts/sync.sh pull -q 2>/dev/null || true",
+            "timeout": 15
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {
@@ -230,6 +67,21 @@
     "feature-dev@claude-code-plugins": true,
     "developer@keboola-claude-kit": true,
     "component-developer@keboola-claude-kit": true,
-    "dataapp-developer@keboola-claude-kit": true
-  }
+    "dataapp-developer@keboola-claude-kit": true,
+    "ralph-loop@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "keboola-claude-kit": {
+      "source": {
+        "source": "github",
+        "repo": "keboola/claude-kit"
+      }
+    }
+  },
+  "voiceEnabled": false,
+  "skipDangerousModePermissionPrompt": true
 }

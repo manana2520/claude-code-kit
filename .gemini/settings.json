@@ -1,0 +1,33 @@
+{
+  "hasSeenIdeIntegrationNudge": true,
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "general": {
+    "sessionRetention": {
+      "enabled": true,
+      "maxAge": "30d",
+      "warningAcknowledged": true
+    }
+  },
+  "ide": {
+    "hasSeenNudge": true
+  },
+  "mcpServers": {
+    "linear": {
+      "command": "npx",
+      "args": [
+        "@mseep/linear-mcp"
+      ],
+      "env": {
+        "LINEAR_API_KEY": "${LINEAR_API_KEY}"
+      },
+      "trust": true
+    }
+  },
+  "ui": {
+    "theme": "Default"
+  }
+}
